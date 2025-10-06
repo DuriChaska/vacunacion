@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+
+const base = import.meta.env.BASE_URL;
+const items = [
+    {
+        img: `${base}/img/escudo2.png`,
+        title: "Avoid alcoholic beverages",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus in quos, deleniti placeat deseruntexpedita veritatis officia mollitia animi omnis quidem eius ea ipsam. Quaerat tempora molestias nesciunt ex? ",
+    },
+     {
+        img: `${base}/img/cerrar.png`,
+        title: "Avoid srtrees",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus in quos, deleniti placeat deseruntexpedita veritatis officia mollitia animi omnis quidem eius ea ipsam. Quaerat tempora molestias nesciunt ex? ",
+    },
+     {
+        img: `${base}/img/barras.png`,
+        title: "Eat healthy food",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus in quos, deleniti placeat deseruntexpedita veritatis officia mollitia animi omnis quidem eius ea ipsam. Quaerat tempora molestias nesciunt ex? ",
+    },
+     {
+        img: `${base}/img/aceptar.png`,
+        title: "Got enough sleep",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus in quos, deleniti placeat deseruntexpedita veritatis officia mollitia animi omnis quidem eius ea ipsam. Quaerat tempora molestias nesciunt ex? ",
+    },
+     {
+        img: `${base}/img/corazon.png`,
+        title: "Execrsize or physical activity",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus in quos, deleniti placeat deseruntexpedita veritatis officia mollitia animi omnis quidem eius ea ipsam. Quaerat tempora molestias nesciunt ex? ",
+    },
+]
+---
+
+<section class="w-full">
+    <div class="flex flex-col md:flex-row w-full">
+        <div class="flex-1 p-6 md:p-12">
+            <img src={`${base}/img/img1.jpg`} alt="enfermera" class="w-11/12 h-[600px] object-cover rounded-md mx-auto md:mx-0" />
+        </div>
+        <div class="flex- p-6 md:p-12">
+            <h2 class="text-[#112778] font-extrabold text-2xl md:text-3xl leading-snug tracking-wide mb-4">
+               Preparation before vaccine 
+            </h2>
+            <p class="text-gray-700 font-semibold leading-relaxed mb-12">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita natus neque, 
+                quae possimus sequi corrupti odio. Aut non voluptatibus voluptate assumenda 
+                laboriosam vitae! Illum laboriosam error vitae nemo, commodi repellendus.
+            </p>
+            <div class="flex flex-col gap-6">
+                {
+                    items.map((item)=>(
+                        <details class="bg-transparent rounded-md">
+                            <summary class="flex items-center gap-2 cursor-pointer selection-none list-none">
+                                <img src={item.img} alt={item.title} class="w-6 rounded-md">
+                                <span class="text-[#112778] font-bold tracking-wide">
+                                    {item.title}
+                                </span>
+                            </summary>
+                            <p class="text-gray-700 text-xs font-bold leading-snug mt-2">
+                                {item.description}
+                            </p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "▼";
+    margin-left: auto;
+    color: #223ca6;
+    background-color: #d4d0ff;
+    padding: 2px 5px;
+    font-size: 10px;
+    border-radius: 5px;
+  }
+  details[open] summary::after {
+    content: "▼";
+  }
+</style>
